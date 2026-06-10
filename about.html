@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="bpaas-design-system" content="brutalist-avantgarde">
+  <meta name="bpaas-design-theme" content="kr-acid-yellow">
+  <title>망원 클럽 룩북 - 정보</title>
+  <meta name="description" content="망원 클럽의 진짜 이야기 – 탄생 배경, 인기 비결, 지역 히스토리와 생생한 회원 후기까지. 망원동 밤 문화의 모든 걸 파헤쳐드림.">
+  <meta name="keywords" content="망원 클럽 정보, 망원 클럽 역사, 망원 클럽 리뷰, 망원동 클럽, 클럽 문화, 망원 핫플, 망원 클럽 꿀팁">
+  <link rel="canonical" href="https://t3b04-mw-club-look-2.vercel.app/info">
+  <meta property="og:title" content="망원 클럽 룩북 - 정보">
+  <meta property="og:description" content="망원 클럽의 진짜 이야기 – 탄생 배경, 인기 비결, 지역 히스토리와 생생한 회원 후기까지. 망원동 밤 문화의 모든 걸 파헤쳐드림.">
+  <meta property="og:image" content="https://t3b04-mw-club-look-2.vercel.app/og-info.jpg">
+  <meta property="og:url" content="https://t3b04-mw-club-look-2.vercel.app/info">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    /* Brutalist Avantgarde + kr-acid-yellow — 동일 디자인 시스템 유지 */
+    :root {
+      --yellow: #FFD700;
+      --black: #0a0a0a;
+      --white: #f5f5f5;
+      --gray: #1e1e1e;
+      --accent: #FF4500;
+      --font: 'Courier New', Courier, monospace;
+      --border: 4px solid var(--yellow);
+      --shadow: 8px 8px 0 var(--yellow);
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a {
+      color: var(--yellow);
+      text-decoration: none;
+    }
+    a:hover {
+      background: var(--yellow);
+      color: var(--black);
+    }
+    /* 헤더/네비 */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--black);
+      border-bottom: var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: -0.02em;
+    }
+    .logo span {
+      color: var(--yellow);
+    }
+    .hamburger-menu {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      width: 40px;
+      gap: 6px;
+    }
+    .hamburger-menu span {
+      display: block;
+      height: 4px;
+      background: var(--yellow);
+      width: 100%;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: var(--black);
+      border-bottom: var(--border);
+      flex-direction: column;
+      padding: 1rem 2rem 1.5rem;
+      z-index: 999;
+    }
+    nav.active {
+      display: flex;
+    }
+    nav a {
+      font-size: 1.4rem;
+      padding: 0.6rem 0;
+      border-bottom: 2px solid var(--gray);
+      transition: 0.2s;
+    }
+    nav a:last-child {
+      border-bottom: none;
+    }
+    nav a.active {
+      background: var(--yellow);
+      color: var(--black);
+      padding-left: 0.5rem;
+    }
+    /* 메인 컨텐츠 */
+    main {
+      flex: 1;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 2rem;
+      width: 100%;
+    }
+    section {
+      margin-bottom: 4rem;
+    }
+    h1, h2, h3 {
+      font-weight: normal;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    h1 {
+      font-size: 3rem;
+      border-left: 10px solid var(--yellow);
+      padding-left: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    h2 {
+      font-size: 2rem;
+      border-bottom: 2px solid var(--yellow);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .card {
+      background: var(--gray);
+      border: var(--border);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+    }
+    .card p {
+      margin-bottom: 1rem;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .highlight {
+      background: var(--yellow);
+      color: var(--black);
+      padding: 0.2rem 0.5rem;
+      display: inline-block;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    li {
+      padding: 0.6rem 0;
+      border-bottom: 1px dashed var(--gray);
+    }
+    li::before {
+      content: '▶ ';
+      color: var(--yellow);
+    }
+    .faq-item {
+      background: var(--gray);
+      border: var(--border);
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .faq-item h3 {
+      cursor: pointer;
+      margin-bottom: 0.5rem;
+      color: var(--yellow);
+    }
+    .faq-item p {
+      display: none;
+      margin-top: 0.75rem;
+    }
+    .faq-item.open p {
+      display: block;
+    }
+    /* 푸터 */
+    footer {
+      border-top: var(--border);
+      padding: 2rem;
+      text-align: center;
+      background: var(--gray);
+      color: var(--yellow);
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      main {
+        padding: 1.5rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .logo {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">망원<span>클럽</span>룩북</div>
+    <div class="hamburger-menu" onclick="toggleNav()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav id="nav">
+      <a href="/">홈</a>
+      <a href="/lookbook">룩북</a>
+      <a href="/info" class="active">정보</a>
+      <a href="/community">커뮤니티</a>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h1>망원 클럽 진짜 이야기</h1>
+      <div class="card">
+        <p>야, bro. 망원동 밤 문화가 왜 핫한지 궁금하지? 내가 3년째 망원에서 놀고 있는데 그냥 지나칠 수가 없어서 이 페이지를 만들었어. 홍대는 이제 너무 상업적이고, 연남은 관광객 천국이잖아. 근데 망원? 아직 덜 알려진 맛집 같은 느낌이야. 클럽들도 다 개성 있고, 사람들도 진짜 놀러 온 느낌이라 완전 찐이야.</p>
+        <p>이 정보 페이지에서는 망원 클럽의 역사, 진짜 회원 후기, 그리고 현지인만 아는 꿀팁까지 다 푼다. 우리 동네 자랑하는 기분이라니까. 😎</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>📍 망원 클럽의 탄생</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>2018년 – 씨앗</h3>
+          <p>처음에는 망원시장 근처 조그만 언더그라운드 바에서 시작됐어. 몇몇 아티스트들이 모여서 사운드 시스템 자체 제작하고, 주말마다 파티 연 거야. 이름하여 '망원 언더그라운드'. 지금은 역사 속으로 사라졌지만 그 정신은 여전히 살아있지.</p>
+        </div>
+        <div class="card">
+          <h3>2021년 – 폭발</h3>
+          <p>코로나 이후로 망원으로 몰리기 시작했어. 홍대 임대료 미친 듯이 오르니까 크루들이 망원으로 내려온 거지. 그때부터 클럽, 라이브하우스, 바가 우후죽순 생겨나기 시작했어. 특히 '망원역 스트리트'가 지금의 핵심 거리야.</p>
+        </div>
+        <div class="card">
+          <h3>2024년 – 지금</h3>
+          <p>지금은 망원만의 독특한 클럽 문화가 자리 잡았어. 국내외 아티스트들이 즐겨 찾고, 심지어는 한국 인디씬의 새로운 메카로 불리고 있어. 물론 여전히 아기자기한 동네 감성은 그대로야. 그게 매력이야.</p>
+        </div>
+        <div class="card">
+          <h3>미래는?</h3>
+          <p>솔직히 걱정도 돼. 유명해지면 망가질 거라는 불안감. 하지만 우리 브로들이 지키고 있으니까 한동안은 괜찮을 거야. 여전히 현지인 위주, 아티스트 위주로 돌아가는 게 망원 클럽의 힘이니까.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>🔥 진짜 회원 후기 (익명 보장)</h2>
+      <div class="card">
+        <p><span class="highlight">"처음 가봤는데 생각보다 사람들이 친절했어요. 홍대 클럽에서는 혼자 가면 좀 쓸쓸한데, 여기는 바텐더가 말 걸어주고 옆 테이블이랑 합석도 해요. 완전 신세계!"</span> – 망원러버 (24, 여)</p>
+      </div>
+      <div class="card">
+        <p><span class="highlight">"음악 취향이 안 맞을 줄 알았는데… 라이브 세트가 진짜 미쳤어요. 특히 인디 일렉트로닉 팀이 연주할 때는 다들 춤추느라 정신없음. 100% 추천합니다."</span> – 브로맥스 (29, 남)</p>
+      </div>
+      <div class="card">
+        <p><span class="highlight">"처음에는 위치 찾기 어려웠어요. 네비 찍고 왔는데 골목길이라 헤맸거든요. 근데 그게 또 재밌더라고요. 숨겨진 보물 찾는 기분? 그리고 망원 클럽은 다 비슷비슷한 옷 입고 가도 돼서 좋아요. 편하게 입고 가면 됨."</span> – 은하수 (27, 논바이너리)</p>
+      </div>
+      <div class="card">
+        <p><span class="highlight">"무엇보다 가격이 착해요. 홍대나 강남의 1/3 수준이에요. 대신 맥주는 좀 평범하니까 칵테일을 추천합니다. 시그니처 칵테일 '망원 레몬' 꼭 드셔보세요!"</span> – 주정뱅이찬 (31, 남)</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>🧠 현지인 꿀팁 대방출</h2>
+      <div class="card">
+        <ul>
+          <li><strong>금토일은 무조건 예약</strong> – 인기 클럽은 22시 이후에 줄이 길어요. 네이버 예약이나 인스타 DM 미리 넣으세요.</li>
+          <li><strong>맨 앞에 서려면 20시부터</strong> – 오픈런하듯이 일찍 가면 음악도 덜 시끄럽고 자리도 잡기 좋아요.</li>
+          <li><strong>주차는 망원시장 공영주차장</strong> – 클럽 근처 골목은 주차 절대 하지 마세요. 견인 많이 당합니다.</li>
+          <li><strong>야식은 망원시장 떡볶이</strong> – 클럽 나와서 시장 들어가서 떡볶이, 튀김, 순대 먹는 게 로컬 코스예요.</li>
+          <li><strong>사진 찍을 땐 조심</strong> – 일부 클럽은 플래시 금지, 특정 아티스트는 사진 싫어해요. 눈치껏 찍으세요.</li>
+          <li><strong>혼자 와도 괜찮아</strong> – 오히려 혼밥하듯 혼클럽 많이 해요. 바에서 사람들과 자연스럽게 섞이는 분위기.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>❓ 자주 묻는 질문 (FAQ)</h2>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <h3>입장료가 있나요?</h3>
+        <p>대부분의 클럽은 입장료가 없거나 5,000~10,000원 수준이에요. 인디 라이브가 있는 날은 15,000원 정도 할 수 있어요. 주류 포함 패키지도 종종 있어서 체크해보세요.</p>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <h3>신분증
+</body>
+</html>
