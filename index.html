@@ -1,320 +1,86 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="bpaas-design-system" content="brutalist-avantgarde">
-    <meta name="bpaas-design-theme" content="kr-acid-yellow">
-    <title>블로그 - 망원 클럽 룩북</title>
-    <meta name="description" content="망원 클럽 룩북 블로그 - 클럽에서 진짜 인정받는 스타일의 비밀. 내가 직접 겪은 썰과 꿀팁 대방출. 지금 확인하고 너도 클럽 간판되자!">
-    <meta name="keywords" content="망원 클럽 룩북, 클럽 룩북, 망원 클럽, 클럽 스타일, 망원, 홍대 클럽, 클럽 패션, 블로그">
-    <link rel="canonical" href="https://mangwon-club-review.mapo-room-guide.xyz/">
-    <meta property="og:title" content="망원 클럽 룩북 - 블로그">
-    <meta property="og:description" content="망원 클럽 룩북 블로그 - 클럽에서 진짜 인정받는 스타일의 비밀. 내가 직접 겪은 썰과 꿀팁 대방출.">
-    <meta property="og:image" content="https://t3b04-mw-club-look-2.vercel.app/og-image.jpg">
-    <meta property="og:url" content="https://mangwon-club-review.mapo-room-guide.xyz/">
-    <meta name="twitter:card" content="summary_large_image">
-    <style>
-        /* Brutalist Avant-Garde Design System - 완전 동일 유지 */
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        :root {
-            --bg-primary: #1a1a1a;
-            --bg-secondary: #2d2d2d;
-            --bg-card: #222;
-            --accent: #f5e942;
-            --accent-hover: #ffd700;
-            --text-primary: #f0f0f0;
-            --text-secondary: #a0a0a0;
-            --border-color: #f5e942;
-            --font-heading: 'Arial Black', 'Impact', sans-serif;
-            --font-body: 'Courier New', monospace;
-            --shadow-hard: 6px 6px 0px rgba(0, 0, 0, 0.8);
-            --brutal-border: 3px solid var(--border-color);
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: var(--font-body);
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            min-height: 100vh;
-            padding-top: 70px;
-        }
-        a {
-            color: var(--accent);
-            text-decoration: none;
-            border-bottom: 2px solid transparent;
-            transition: all 0.15s ease;
-        }
-        a:hover {
-            color: var(--accent-hover);
-            border-bottom-color: var(--accent);
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-        /* 헤더 & 네비게이션 - hamburger-menu 패턴 */
-        .site-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: var(--bg-secondary);
-            border-bottom: var(--brutal-border);
-            box-shadow: var(--shadow-hard);
-        }
-        .header-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 10px 20px;
-        }
-        .logo a {
-            font-family: var(--font-heading);
-            font-size: 1.8rem;
-            letter-spacing: -0.05em;
-            color: var(--accent);
-            text-transform: uppercase;
-            border-bottom: none;
-        }
-        .logo a:hover {
-            color: var(--accent-hover);
-        }
-        /* hamburger button */
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: 2px solid var(--accent);
-            color: var(--accent);
-            font-size: 1.8rem;
-            cursor: pointer;
-            padding: 6px 10px;
-            line-height: 1;
-            transition: background 0.2s;
-        }
-        .menu-toggle:hover {
-            background: var(--accent);
-            color: var(--bg-primary);
-        }
-        .menu-toggle .hamburger-icon {
-            display: inline-block;
-            font-family: var(--font-heading);
-            font-weight: bold;
-            letter-spacing: -0.1em;
-        }
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-            align-items: center;
-        }
-        .nav-links a {
-            font-family: var(--font-heading);
-            text-transform: uppercase;
-            font-size: 1rem;
-            letter-spacing: 0.05em;
-            padding: 8px 0;
-            border-bottom: 2px solid transparent;
-        }
-        .nav-links a:hover,
-        .nav-links a.active {
-            border-bottom-color: var(--accent);
-        }
-        /* 메인 콘텐츠 */
-        .main-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        /* 블로그 포스트 */
-        .blog-post {
-            background: var(--bg-card);
-            border: var(--brutal-border);
-            padding: 40px;
-            box-shadow: var(--shadow-hard);
-            margin-bottom: 40px;
-        }
-        .blog-post h1 {
-            font-family: var(--font-heading);
-            font-size: 2.6rem;
-            text-transform: uppercase;
-            letter-spacing: -0.03em;
-            line-height: 1.2;
-            margin-bottom: 12px;
-            color: var(--accent);
-            word-break: break-word;
-        }
-        .blog-post .meta {
-            display: flex;
-            gap: 20px;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            border-bottom: 1px solid var(--accent);
-            padding-bottom: 15px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-        }
-        .blog-post .meta span {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .blog-post .content p {
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
-        }
-        .blog-post .content strong {
-            color: var(--accent);
-        }
-        .blog-post .content .highlight-box {
-            background: var(--bg-secondary);
-            border-left: 5px solid var(--accent);
-            padding: 20px;
-            margin: 25px 0;
-            font-style: italic;
-        }
-        .blog-post .content ul {
-            margin: 20px 0 20px 30px;
-            list-style: square;
-            color: var(--text-secondary);
-        }
-        .blog-post .content ul li {
-            margin-bottom: 10px;
-        }
-        .blog-post .content ul li strong {
-            color: var(--accent);
-        }
-        /* 푸터 */
-        .site-footer {
-            background: var(--bg-secondary);
-            border-top: var(--brutal-border);
-            text-align: center;
-            padding: 20px;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-top: 60px;
-        }
-        .site-footer a {
-            color: var(--accent);
-        }
-        /* 반응형 */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                gap: 0;
-                background: var(--bg-secondary);
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                border-bottom: var(--brutal-border);
-                box-shadow: var(--shadow-hard);
-            }
-            .nav-links.open {
-                display: flex;
-            }
-            .nav-links a {
-                display: block;
-                padding: 15px 20px;
-                border-bottom: 1px solid #3a3a3a;
-                text-align: center;
-            }
-            .nav-links a:last-child {
-                border-bottom: none;
-            }
-            .blog-post {
-                padding: 25px 15px;
-            }
-            .blog-post h1 {
-                font-size: 2rem;
-            }
-            .header-inner {
-                padding: 8px 15px;
-            }
-        }
-        @media (min-width: 769px) {
-            .menu-toggle {
-                display: none !important;
-            }
-            .nav-links {
-                display: flex !important;
-            }
-        }
-    </style>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>망원 클럽 룩북 — 홈</title>
+  <meta name="description" content="망원 클럽을 처음 찾는 방문자를 위한 종합 가이드. 입장 전 꼭 확인해야 할 기본 정보와 검색엔진에 최적화된 롱테일 키워드로 구성했습니다.">
+  <meta name="keywords" content="망원 클럽, 클럽 선택 가이드, 망원 나이트, 클럽 입장 팁, 클럽 루프백, 서울 클럽 리뷰">
+  <link rel="canonical" href="https://mangwon-club-review.mapo-room-guide.xyz/">
+  <meta property="og:title" content="망원 클럽 룩북 — 홈">
+  <meta property="og:description" content="망원 클럽을 처음 찾는 방문자를 위한 종합 가이드. 입장 전 꼭 확인해야 할 기본 정보와 검색엔진에 최적화된 롱테일 키워드로 구성했습니다.">
+  <meta property="og:url" content="https://mangwon-club-review.mapo-room-guide.xyz/">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-    <header class="site-header">
-        <div class="header-inner">
-            <div class="logo">
-                <a href="/">MANGWON CLUB LOOK</a>
-            </div>
-            <button class="menu-toggle" aria-label="메뉴 열기" onclick="this.nextElementSibling.classList.toggle('open')">
-                <span class="hamburger-icon">☰</span>
-            </button>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="/">홈</a></li>
-                    <li><a href="/blog" class="active">블로그</a></li>
-                    <li><a href="/gallery">갤러리</a></li>
-                    <li><a href="/reviews">리뷰</a></li>
-                    <li><a href="/faq">FAQ</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <!-- navigation -->
+  <nav class="nav-present responsive-768">
+    <ul>
+      <li><a href="/">홈</a></li>
+      <li><a href="/clubs">클럽 소개</a></li>
+      <li><a href="/tips">입장 팁</a></li>
+      <li><a href="/faq">FAQ</a></li>
+      <li><a href="/contact">문의</a></li>
+    </ul>
+  </nav>
 
-    <main class="main-content">
-        <article class="blog-post">
-            <h1>내가 망원클럽에서 깨달은 룩북의 진리</h1>
-            <div class="meta">
-                <span>📅 2025.03.22</span>
-                <span>✍️ 망원브로</span>
-                <span>🏷️ 스타일 꿀팁 / 썰</span>
-            </div>
-            <div class="content">
-                <p>야, 형들. 난 망원에서 3년째 클럽 돌아다니는 브로야. 오늘은 진짜 내 경험에서 우러나온 룩북 꿀팁 좀 풀어볼게. <strong>클럽에서 눈에 띄는 건 실력보다 패션</strong>이라는 거, 인정하지? ㅋㅋ</p>
+  <!-- hero section -->
+  <section class="r-img-mu9v">
+    <h1 class="q-head-qaoh">망원 클럽 룩북</h1>
+    <p>망원은 그 자체가 문화다. 화려한 조명, 강렬한 베이스, 그리고 무수히 뒤섞인 사람들의 에너지. 여기서는 그 복합적인 현장을 파헤쳐, 당신이 미리 눈을 뜨게 해 준다.</p>
+    <p>우리의 목표는 단순히 ‘어디가 좋다’는 의견을 나열하는 것이 아니다. 입장 전 알아야 할 규칙, 체크리스트, 그리고 흔히 접하게 되는 착각을 바로 잡아 주는 데 있다. 이제, 그 어느 클럽이든 자신감 있게 선택하라.</p>
+  </section>
 
-                <p>처음 망원 왔을 때 난 그냥 아무 옷이나 입고 갔어. 근데 문지기가 "여기 클럽이야, 잠옷 파티 아니야" 하면서 거절당한 썰이 있지.. 그때부터 제대로 공부하기 시작했어.</p>
+  <!-- 기본 정보 섹션 -->
+  <section class="x-side-h9ut">
+    <h2 class="q-head-qaoh">기본 정보</h2>
+    <p>망원 지역 내 클럽은 크게 세 가지 축으로 나뉜다. 1) 대형 체인형 클럽 – 스포트라이트와 대규모 인원을 자랑한다. 2) 인디 라운지 – 예술적 감각과 실험적인 사운드를 제공한다. 3) 하우스 파티 – 비공식적인 분위기와 자유로운 드레스코드를 특징으로 한다.</p>
+    <p>각 클럽마다 입장료, 운영 시간, 그리고 금연 여부가 다르다. 입장료는 보통 10,000원~30,000원대이며, 라인업에 따라 변동한다. 영업시간은 새벽 4시까지 연장되는 경우가 많지만, 일부 클럽은 새벽 2시를 넘지 않는다. 금연 클럽이 드물기 때문에, 금연 구역 여부는 사전 확인이 필수다.</p>
+    <p>또한, 대부분의 클럽은 사전 예약 시스템을 도입하고 있다. 특히 토요일과 일요일 같은 피크 타임에는 예약 없이 방문하면 입장이 거부될 수 있다. 공식 SNS와 홈페이지에서 실시간 예약 가능 여부를 확인하라.</p>
+  </section>
 
-                <div class="highlight-box">
-                    “망원 클럽의 룩북은 <strong>'과하게'가 기본값</strong>이야. 평범하면 지는 거야, 브로.”
-                </div>
+  <!-- 선택 기준 섹션 -->
+  <section class="m-img-3s6g">
+    <h2 class="q-head-qaoh">클럽 선택 기준</h2>
+    <p>당신이 클럽을 고를 때, 가장 중요한 세 가지 요소는 <strong>음악 장르, 인원 규모, 그리고 서비스 환경</strong>이다. 음악 장르는 클럽의 분위기를 좌우하므로, 사전 플레이리스트를 확인하고 싶다면 SoundCloud 혹은 YouTube 채널을 찾아보는 것이 좋다.</p>
+    <p>인원 규모는 개인적인 취향에 크게 좌우된다. 대형 클럽은 에너지 폭발을 경험하게 하지만, 개인 공간은 제한된다. 반면 인디 라운지는 친밀한 분위기와 대화 가능성을 제공한다.</p>
+    <p>서비스 환경은 보안, 입구 대기 시간, 그리고 내부 청결을 포함한다. 보안이 과도하게 엄격하면 분위기가 억압적으로 변할 수 있다. 입구에서 대기 시간이 30분을 초과한다면, 그 클럽은 이미 포화 상태일 가능성이 높다.</p>
+    <ul class="n-list-40p5">
+      <li>음악 장르: EDM, 힙합, 하우스, 테크노 등</li>
+      <li>인원 규모: 200명 미만, 200~500명, 500명 이상</li>
+      <li>서비스: 예약제, 무예약제, 금연 여부</li>
+    </ul>
+  </section>
 
-                <p>처음엔 뭘 입어야 할지 감도 안 잡혔거든. 유튜브에서 '클럽 룩북' 검색해도 죄다 홍대 스타일이더라고. 근데 망원은 좀 달라. <strong>스트릿 브루탈리즘</strong>이라고 해야 하나? 거친 듯하면서도 디테일이 살아있는 스타일이 통함.</p>
+  <!-- 상황별 팁 섹션 -->
+  <section class="t-btn-gr8p">
+    <h2 class="q-head-qaoh">상황별 방문 팁</h2>
+    <div>
+      <p>① <strong>신입 파티꾼</strong> — 처음이라면, 라인업이 확실히 검증된 대형 클럽보다 인디 라운지를 선택하라. 인원이 적어 분위기를 파악하기 쉽고, 사전 입장 절차도 간단하다.</p>
+      <p>② <strong>프리 파티 목적</strong> — 친구와 함께 에너지 넘치는 파티를 원한다면, 대형 체인형 클럽을 추천한다. 라인업이 강력하고, 라인업 변동이 적어 사전 계획이 용이하다.</p>
+      <p>③ <strong>저녁 10시 이전</strong> — 일찍 가면 입구 대기 시간이 최소화된다. 또한, 가격이 낮아지는 경우가 많으니, 예산을 절감하고 싶다면 저녁 10시 이전을 공략하라.</p>
+      <p>④ <strong>새벽 2시 이후</strong> — 새벽 클럽은 보통 라인업이 변동된다. 스페셜 DJ가 나오는 경우가 많아, 이때를 놓치면 놓친다. SNS 알림을 설정해 두자.</p>
+    </div>
+  </section>
 
-                <p>내가 정리한 망원 클럽 룩북 3원칙:</p>
-                <ul>
-                    <li><strong>첫째, 레이어링은 필수</strong> - 베스트나 조끼 하나만 더 껴도 존재감 두 배.</li>
-                    <li><strong>둘째, 포인트 컬러는 무조건</strong> - 형광이나 메탈릭 한 방이면 사람들 시선을 못 떼게 만듦.</li>
-                    <li><strong>셋째, 신발은 더러워야 간지</strong> - 새로 산 신발보다 길들여진 부츠나 스니커즈가 훨씬 클럽 분위기에 잘 어울려.</li>
-                </ul>
+  <!-- FAQ 섹션 -->
+  <section class="q-foot-l314">
+    <h2 class="q-head-qaoh">자주 묻는 질문</h2>
+    <h3 class="q-head-qaoh">Q. 망원 클럽은 대중교통으로 접근하기 좋은가?</h3>
+    <p>망원역과 홍대입구역을 중심으로 다양한 버스 노선과 지하철 6호선이 연결돼 있다. 특히, 망원역 2번 출구에서 도보 5분 이내에 주요 클럽이 밀집해 있어, 교통 혼잡을 최소화할 수 있다.</p>
+    <h3 class="q-head-qaoh">Q. 입장 전 체크해야 할 필수 아이템은?</h3>
+    <p>신분증(주민등록증 또는 운전면허증), 현금(소액을 준비), 그리고 스마트폰에 사전 예약 확인서가 필요하다. 일부 클럽은 QR코드 입장을 요구하니, 사전에 확인하고 준비하라.</p>
+    <h3 class="q-head-qaoh">Q. 클럽 내에서 촬영이 가능한가?</h3>
+    <p>대부분의 클럽은 저작권 및 프라이버시 문제로 촬영을 금지한다. 공식 촬영 허가가 있는 경우를 제외하고는, 개인 촬영은 삼가하는 것이 좋다.</p>
+    <h3 class="q-head-qaoh">Q. 음주 제한은 어떻게 적용되나요?</h3>
+    <p>만 19세 미만 입장은 일체 금지된다. 또한, 과도한 음주로 인한 무례 행위는 즉시 퇴장 조치가 이루어진다. 책임감 있게 즐기라는 것이 우리의 기본 원칙이다.</p>
+  </section>
 
-                <p>한 번은 내가 <strong>카키색 밀리터리 셔츠에 빈티지 데님</strong> 입고 갔는데, 어떤 형이 와서 "너 룩북 유튜버야?" 물어보더라고. 그날따라 디제이도 내 스타일 보고 음악 틀어준 썰도 있고 ㅋㅋㅋ</p>
-
-                <p>근데 진짜 중요한 건, <strong>편안해야 한다는 거야</strong>. 클럽에서 4~5시간 서서 놀아야 하는데, 불편한 옷 입으면 고생은 너만 함. 내가 추천하는 건 <strong>오버핏 티셔츠 + 와이드 팬츠 + 튼튼한 부츠</strong>조합. 여기에 체인이나 목걸이 하나만 딱 걸치면 끝.</p>
-
-                <p>아, 그리고 망원 클럽에서 <strong>절대 하지 말아야 할 룩북</strong>도 알려줄게. 정장 재킷, 구두, 너무 깔끔한 헤어스타일. 왜인지 알지? 너무 "나 클럽 처음 왔어요" 티 나잖아 ㅋㅋ</p>
-
-                <p>마지막 팁: <strong>자신감 있게 입어야 진짜 간지</strong>야. 내가 봤을 때 옷이 아무리 좋아도 쭈뼛거리면 다 소용없어. 거울 보고 "오늘 나 미쳤다" 하면서 나와야 클럽에서도 인정받는 스타일이 완성됨.</p>
-
-                <p>다음에 또 써볼게. 너희들의 망원 클럽 룩북 성공담도 댓글로 남겨줘. 브로들, 오
+  <!-- footer -->
+  <footer class="q-foot-l314">
+    <p>© 2026 망원 클럽 룩북. 모든 권리 보유. 본 가이드는 정보 제공을 목적으로 하며, 클럽 운영 정책 변경 시 최신 정보와 차이가 있을 수 있다.</p>
+    <p>문의: <a href="mailto:info@mapo-room-guide.xyz">info@mapo-room-guide.xyz</a> | <a href="/privacy">개인정보 처리방침</a></p>
+  </footer>
 </body>
 </html>
